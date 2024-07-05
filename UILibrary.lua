@@ -29,7 +29,8 @@ if (not isfile('Meta Hub V1/configs/globalConf.bin')) then
 end;
 
 local globalConfFilePath = 'Meta Hub V1/configs/globalConf.bin';
-local isGlobalConfigOn = readfile(globalConfFilePath) == 'true';
+local isGlobalConfigOn = false;
+if readfile(globalConfFilePath) then isGlobalConfigOn = true end
 
 local library = {
     unloadMaid = Maid.new(),
