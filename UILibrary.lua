@@ -8,8 +8,8 @@ local KeyBindVisualizer = loadstring(request({Url="https://raw.githubusercontent
 
 local CoreGui, Players, RunService, TextService, UserInputService, ContentProvider, HttpService, TweenService, GuiService, TeleportService = Services:Get('CoreGui', 'Players', 'RunService', 'TextService', 'UserInputService', 'ContentProvider', 'HttpService', 'TweenService', 'GuiService', 'TeleportService');
 
-local toCamelCase = sharedRequire('utils/toCamelCase.lua');
-local Maid = sharedRequire('utils/Maid.lua');
+local toCamelCase = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/toCamelCase.lua",Method='GET'}).Body)();
+local Maid = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/Maid.lua",Method='GET'}).Body)();
 local ToastNotif = sharedRequire('@classes/ToastNotif.lua');
 
 local LocalPlayer = Players.LocalPlayer;
