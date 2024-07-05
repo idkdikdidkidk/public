@@ -1,6 +1,6 @@
-local Services = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/Services.lua",Method='GET'}).Body)();
-local library = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/UILibrary.lua",Method='GET'}).Body)();
-local Signal = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/Signal.lua",Method='GET'}).Body)();
+local Services = sharedRequire('./Services.lua');
+local library = sharedRequire('../UILibrary.lua');
+local Signal = sharedRequire('./Signal.lua');
 
 local Players, UserInputService, HttpService, CollectionService = Services:Get('Players', 'UserInputService', 'HttpService', 'CollectionService');
 local LocalPlayer = Players.LocalPlayer;
@@ -10,6 +10,10 @@ local Utility = {};
 Utility.onPlayerAdded = Signal.new();
 Utility.onCharacterAdded = Signal.new();
 Utility.onLocalCharacterAdded = Signal.new();
+
+local clonefunction = function(v)
+    return loadstring(string.dump(v))
+end
 
 local mathFloor = clonefunction(math.floor)
 local isDescendantOf = clonefunction(game.IsDescendantOf);
