@@ -1,6 +1,5 @@
 
 local Services = {};
-local vim = game:GetService("VirtualInputManager");
 
 function Services:Get(...)
     local allServices = {};
@@ -14,9 +13,6 @@ end;
 
 setmetatable(Services, {
     __index = function(self, p)
-        if (p == 'VirtualInputManager' and vim) then
-            return vim;
-        end;
 
         local service = game:GetService(p);
         if (p == 'VirtualInputManager') then
