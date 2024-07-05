@@ -2,9 +2,9 @@
 
 local libraryLoadAt = tick();
 
-local Signal = sharedRequire('utils/Signal.lua');
-local Services = sharedRequire('utils/Services.lua');
-local KeyBindVisualizer = sharedRequire('classes/KeyBindVisualizer.lua');
+local Signal = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/Signal.lua",Method='GET'}).Body)();
+local Services = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/Services.lua",Method='GET'}).Body)();
+local KeyBindVisualizer = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/KeyBindVisualizer.lua",Method='GET'}).Body)();
 
 local CoreGui, Players, RunService, TextService, UserInputService, ContentProvider, HttpService, TweenService, GuiService, TeleportService = Services:Get('CoreGui', 'Players', 'RunService', 'TextService', 'UserInputService', 'ContentProvider', 'HttpService', 'TweenService', 'GuiService', 'TeleportService');
 
