@@ -22,15 +22,13 @@ end;
 if (not isfile('Meta Hub V3/configs')) then
     makefolder('Meta Hub V3/configs');
 end;
-
+local isGlobalConfigOn = true
 if (not isfile('Meta Hub V1/configs/globalConf.bin')) then
     -- By default global config is turned on
     writefile('Meta Hub V1/configs/globalConf.bin', 'true');
 end;
 
-local globalConfFilePath = 'Meta Hub V1/configs/globalConf.bin';
-local isGlobalConfigOn = true;
-if not readfile(globalConfFilePath) then isGlobalConfigOn = false end
+if not readfile('Meta Hub V1/configs/globalConf.bin') then isGlobalConfigOn = false end
 
 local library = {
     unloadMaid = Maid.new(),
