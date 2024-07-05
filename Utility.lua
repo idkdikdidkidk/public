@@ -11,17 +11,13 @@ Utility.onPlayerAdded = Signal.new();
 Utility.onCharacterAdded = Signal.new();
 Utility.onLocalCharacterAdded = Signal.new();
 
-function clonefunction(v)
-    return loadstring(string.dump(v))
-end
-
 local mathFloor = math.floor
 
 
 local getMouseLocation = UserInputService.GetMouseLocation;
 local getPlayers = Players.GetPlayers;
 
-local worldToViewportPoint = clonefunction(Instance.new('Camera').WorldToViewportPoint);
+local worldToViewportPoint = Instance.new('Camera').WorldToViewportPoint;
 
 function Utility:countTable(t)
     local found = 0;
