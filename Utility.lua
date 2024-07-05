@@ -433,7 +433,7 @@ function Utility.getFunctionHash(f)
 
     local total = HttpService:JSONEncode({constants, protos});
 
-    return syn.crypt.hash(total);
+    return crypt.hash(total);
 end;
 
 local function onPlayerRemoving(player)
