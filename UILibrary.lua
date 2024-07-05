@@ -3237,8 +3237,8 @@ do -- // Load
         end;
 
         library.OnLoad:Fire();
-        library.OnLoad:Destroy();
-        library.OnLoad = nil;
+       -- library.OnLoad:Destroy();
+        --library.OnLoad = nil;
     end;
 
     function library:SetTitle(text)
