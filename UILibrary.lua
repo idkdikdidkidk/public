@@ -10,7 +10,7 @@ local CoreGui, Players, RunService, TextService, UserInputService, ContentProvid
 
 local toCamelCase = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/toCamelCase.lua",Method='GET'}).Body)();
 local Maid = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/Maid.lua",Method='GET'}).Body)();
-local ToastNotif = sharedRequire('@classes/ToastNotif.lua');
+local ToastNotif = loadstring(request({Url="https://raw.githubusercontent.com/idkdikdidkidk/public/main/ToastNotif.lua",Method='GET'}).Body)();
 
 local LocalPlayer = Players.LocalPlayer;
 local visualizer;
