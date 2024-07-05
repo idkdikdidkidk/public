@@ -17,10 +17,9 @@ end
 
 local mathFloor = math.floor
 
-local IsA = clonefunction(game.IsA);
 
-local getMouseLocation = clonefunction(UserInputService.GetMouseLocation);
-local getPlayers = clonefunction(Players.GetPlayers);
+local getMouseLocation = UserInputService.GetMouseLocation;
+local getPlayers = Players.GetPlayers;
 
 local worldToViewportPoint = clonefunction(Instance.new('Camera').WorldToViewportPoint);
 
@@ -224,7 +223,7 @@ local function onCharacterAdded(player)
 
     if (player == LocalPlayer) then
         Utility.listenToDescendantAdded(character, function(obj)
-            if (IsA(obj, 'BasePart')) then
+            if (game.IsA(obj, 'BasePart')) then
                 table.insert(playerData.parts, obj);
 
                 local con;
