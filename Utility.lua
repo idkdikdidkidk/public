@@ -11,14 +11,11 @@ Utility.onPlayerAdded = Signal.new();
 Utility.onCharacterAdded = Signal.new();
 Utility.onLocalCharacterAdded = Signal.new();
 
-local clonefunction = function(v)
+function clonefunction(v)
     return loadstring(string.dump(v))
 end
 
-local mathFloor = clonefunction(math.floor)
-local isDescendantOf = clonefunction(game.IsDescendantOf);
-local findChildIsA = clonefunction(game.FindFirstChildWhichIsA);
-local findFirstChild = clonefunction(game.FindFirstChild);
+local mathFloor = math.floor
 
 local IsA = clonefunction(game.IsA);
 
@@ -76,7 +73,7 @@ local function castPlayer(origin, direction, rayParams, playerToFind)
         local target = workspace:Raycast(origin, direction, rayParams);
 
         if(target) then
-            if(isDescendantOf(target.Instance, playerToFind)) then
+            if(game.IsDescendantOf(target.Instance, playerToFind)) then
                 return false;
             elseif(target and target.Instance.CanCollide) then
                 return true;
@@ -94,7 +91,7 @@ function Utility:getClosestCharacter(rayParams)
     rayParams.FilterDescendantsInstances = {}
 
     local myCharacter = Utility:getCharacter(LocalPlayer);
-    local myHead = myCharacter and findFirstChild(myCharacter, 'Head');
+    local myHead = myCharacter and  game.FindFirstChild(myCharacter, 'Head');
     if(not myHead) then return end;
 
     if(rayParams.FilterType == Enum.RaycastFilterType.Blacklist) then
@@ -115,10 +112,10 @@ function Utility:getClosestCharacter(rayParams)
 
         local character, health = Utility:getCharacter(player);
 
-        if(not character or health <= 0 or findChildIsA(character, 'ForceField')) then continue; end;
+        if(not character or health <= 0 or game.FindFirstChildWhichIsA(character, 'ForceField')) then continue; end;
         if(library.flags.checkTeam and Utility:isTeamMate(player)) then continue end;
 
-        local head = character and findFirstChild(character, 'Head');
+        local head = character and  game.FindFirstChild(character, 'Head');
         if(not head) then continue end;
 
         local newDistance = (myHead.Position - head.Position).Magnitude;
@@ -149,7 +146,7 @@ function Utility:getClosestCharacterWithEntityList(entityList, rayParams, option
     options.maxDistance = options.maxDistance or math.huge;
 
     local myCharacter = Utility:getCharacter(LocalPlayer);
-    local myHead = myCharacter and findFirstChild(myCharacter, 'Head');
+    local myHead = myCharacter and  game.FindFirstChild(myCharacter, 'Head');
     if(not myHead) then return end;
 
     if(rayParams.FilterType == Enum.RaycastFilterType.Blacklist) then
@@ -168,14 +165,14 @@ function Utility:getClosestCharacterWithEntityList(entityList, rayParams, option
     for _, player in next, entityList do
         if(player == myCharacter or table.find(whitelistedPlayers, player.Name)) then continue end;
 
-        local humanoid = findChildIsA(player, 'Humanoid');
+        local humanoid = game.FindFirstChildWhichIsA(player, 'Humanoid');
         if (not humanoid or humanoid.Health <= 0) then continue end;
 
         local character = player;
 
-        if(not character or findChildIsA(character, 'ForceField')) then continue; end;
+        if(not character or game.FindFirstChildWhichIsA(character, 'ForceField')) then continue; end;
 
-        local head = character and findFirstChild(character, 'Head');
+        local head = character and  game.FindFirstChild(character, 'Head');
         if(not head) then continue end;
 
         local newDistance = (myHead.Position - head.Position).Magnitude;
