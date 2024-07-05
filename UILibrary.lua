@@ -28,7 +28,7 @@ if (not isfile('Meta Hub V1/configs/globalConf.bin')) then
     writefile('Meta Hub V1/configs/globalConf.bin', 'true');
 end;
 
-if not readfile('Meta Hub V1/configs/globalConf.bin') then isGlobalConfigOn = false end
+local isGlobalConfigOn = readfile('Meta Hub V1/configs/globalConf.bin'), true
 
 local library = {
     unloadMaid = Maid.new(),
