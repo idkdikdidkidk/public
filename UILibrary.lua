@@ -19,8 +19,8 @@ if getgenv().library then
 	getgenv().library:Unload();
 end;
 
-if (not isfile('Meta Hub V3/configs')) then
-    makefolder('Meta Hub V3/configs');
+if (not isfile('Meta Hub V1/configs')) then
+    makefolder('Meta Hub V1/configs');
 end;
 local isGlobalConfigOn = true
 if (not isfile('Meta Hub V1/configs/globalConf.bin')) then
@@ -3344,11 +3344,11 @@ do -- // Load
 
             if (imageURL == '') then return end;
 
-            if (not isfolder('Meta Hub V3/CustomBackgrounds')) then
-                makefolder('Meta Hub V3/CustomBackgrounds');
+            if (not isfolder('Meta Hub V1/CustomBackgrounds')) then
+                makefolder('Meta Hub V1/CustomBackgrounds');
             end;
 
-            local path = string.format('Meta Hub V3/CustomBackgrounds/%s.bin', crypt.hash(imageURL));
+            local path = string.format('Meta Hub V1/CustomBackgrounds/%s.bin', crypt.hash(imageURL));
 
             if (not isfile(path)) then
                 local suc, httpRequest = pcall(request, {
@@ -3512,7 +3512,7 @@ do -- // Load
         local function getAllConfigs()
             local files = {};
 
-            for _, v in next, listfiles('Meta Hub V3/configs') do
+            for _, v in next, listfiles('Meta Hub V1/configs') do
                 if (not isfolder(v)) then continue; end;
 
                 for _, v2 in next, listfiles(v) do
@@ -3627,7 +3627,7 @@ do -- // Load
                     end;
                 end;
 
-                local configData = readfile(string.format('Meta Hub V3/configs/%s/%s', folderName, fullConfigName));
+                local configData = readfile(string.format('Meta Hub V1/configs/%s/%s', folderName, fullConfigName));
                 writefile(string.format('%s/%s', library.foldername, fullConfigName), configData);
 
                 library:LoadConfig(configName);
