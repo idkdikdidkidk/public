@@ -15,9 +15,6 @@ local ToastNotif = loadstring(request({Url="https://raw.githubusercontent.com/id
 local LocalPlayer = Players.LocalPlayer;
 local visualizer;
 
-if getgenv().library then
-	getgenv().library:Unload();
-end;
 
 if (not isfile('Meta Hub V1/configs')) then
     makefolder('Meta Hub V1/configs');
