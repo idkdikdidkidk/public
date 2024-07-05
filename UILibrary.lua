@@ -47,7 +47,7 @@ local library = {
 	tabSize = 0,
 	theme = {},
 	foldername =  isGlobalConfigOn and 'Meta Hub V1/configs/global' or string.format('Meta Hub V1/configs/%s', tostring(LocalPlayer.UserId)),
-	fileext = getServerConstant('.json'),
+	fileext = ('.json'),
     chromaColor = Color3.new()
 }
 
@@ -169,9 +169,9 @@ do -- // Load
     --Functions
     library.round = function(num, bracket)
         bracket = bracket or 1
-        if typeof(num) == getServerConstant('Vector2') then
+        if typeof(num) == ('Vector2') then
             return Vector2.new(library.round(num.X), library.round(num.Y))
-        elseif typeof(num) == getServerConstant('Color3') then
+        elseif typeof(num) == ('Color3') then
             return library.round(num.r * 255), library.round(num.g * 255), library.round(num.b * 255)
         else
             return num - num % bracket;
