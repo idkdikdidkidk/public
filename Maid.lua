@@ -65,11 +65,7 @@ function Maid:__newindex(index, newTask)
 		elseif typeof(oldTask) == "RBXScriptConnection" then
 			oldTask:Disconnect();
 		elseif typeof(oldTask) == 'table' then
-			if oldTask:Remove() then
-			oldTask:Remove();
-			else
-			   oldTask:Destroy();
-			end
+			oldTask = nil
 		elseif (Signal.isSignal(oldTask)) then
 			oldTask:Destroy();
 		elseif (typeof(oldTask) == 'thread') then
