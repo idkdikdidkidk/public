@@ -25,7 +25,7 @@ local IsA = clonefunction(game.IsA);
 local getMouseLocation = clonefunction(UserInputService.GetMouseLocation);
 local getPlayers = clonefunction(Players.GetPlayers);
 
-local worldToViewportPoint = clonefunction(Instance.new(getServerConstant('Camera')).WorldToViewportPoint);
+local worldToViewportPoint = clonefunction(Instance.new('Camera').WorldToViewportPoint);
 
 function Utility:countTable(t)
     local found = 0;
